@@ -1,6 +1,10 @@
-from pyml_example import random_expr, evaluate, random_expr_, evaluate_, map_array
+import sys
+sys.path.append('../')
+
+from pyml_example import random_expr, evaluate, random_expr_, evaluate_, map_array, add
 import timeit
 import numpy as np
+
 
 # Manipulating AST encodings is a bit dirty but not unworkable
 def evaluate_bis(e):
@@ -34,7 +38,14 @@ def test_map():
     map_array(lambda x: 2*x + 1, arr)
     assert np.all(arr == np.array([3.0, 5.0]))
 
+def test_add():
+    # assert add(1, 2) == 3
+    print(f"add(1, 2) = {add(1, 2)}")
+
 if __name__ == "__main__":
     test_evaluate()
     test_map()
     profile()
+    test_add()
+
+

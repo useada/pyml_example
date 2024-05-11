@@ -13,4 +13,4 @@ dll.caml_startup(argv)
 
 # We export the names explicitly otherwise mypy gets confused and
 # generates spurious errors
-from example_module import random_expr, evaluate, random_expr_, evaluate_, map_array
+from example_module import random_expr, evaluate, random_expr_, evaluate_, map_array, add

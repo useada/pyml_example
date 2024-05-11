@@ -1,6 +1,7 @@
 open Base
 open Python_lib
 open Python_lib.Let_syntax
+open Lib
 
 (* //////////////////////////////////////////////////////////////////////////////////// *)
 
@@ -77,6 +78,14 @@ let map_array =
     set t idx (f (get t idx)));
   Py.none
 
+
+let add =
+  let%map_open val1 = positional "val1" int ~docstring:"val1"
+  and val2 = positional "val2" int ~docstring:"val2" in
+  let result = Adder.add ~x:val1 ~y:val2 () in
+  fun () -> python_of_int result
+
+
 (* //////////////////////////////////////////////////////////////////////////////////// *)
 
 let () =
@@ -92,3 +101,4 @@ let () =
     ~docstring:"" random_expr_;
   Py_module.set mod_ "map_array"
     ~docstring:"Apply a function to every element of an array in place" map_array;
+  Py_module.set mod_ "add" ~docstring:"" add;

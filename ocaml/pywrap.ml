@@ -1,7 +1,6 @@
 open Base
 open Python_lib
 open Python_lib.Let_syntax
-open Lib
 
 (* //////////////////////////////////////////////////////////////////////////////////// *)
 
@@ -82,7 +81,7 @@ let map_array =
 let add =
   let%map_open val1 = positional "val1" int ~docstring:"val1"
   and val2 = positional "val2" int ~docstring:"val2" in
-  let result = Adder.add ~x:val1 ~y:val2 () in
+  let result = Lib.Adder.add ~x:val1 ~y:val2 () in
   fun () -> python_of_int result
 
 

@@ -1,5 +1,8 @@
 PKG_NAME=pyml_example
-DLL=pywrap.so
+
+DLL=pywrap.dll
+# DLL=pywrap.so
+# DLL=pywrap.dylib
 
 .PHONY: build install test clean
 
@@ -17,6 +20,16 @@ test:
 
 clean:
 	dune clean
+
+	# rd -Recurse -Force -Path ocaml/_build
+	# rd -Recurse -Force -Path _build
+	# rd -Recurse -Force -Path __pycache__
+	# rd -Recurse -Force -Path .pytest_cache
+	# rd -Recurse -Force -Path pyml_example/__pycache__
+	# rd -Recurse -Force -Path $(PKG_NAME)/$(DLL)
+	# rd -Recurse -Force -Path ocaml/.merlin
+	# rd -Recurse -Force -Path *.egg-info
+
 	rm -rf ocaml/_build
 	rm -rf build
 	rm -rf __pycache__

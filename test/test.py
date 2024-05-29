@@ -1,5 +1,7 @@
 import sys
-sys.path.append('../')
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from pyml_example import random_expr, evaluate, random_expr_, evaluate_, map_array, add
 import timeit

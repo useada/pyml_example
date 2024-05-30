@@ -1,7 +1,7 @@
 PKG_NAME=pyml_example
 
-DLL=pywrap.dll
-# DLL=pywrap.so
+# DLL=pywrap.dll
+DLL=pywrap.so # linux and mac
 # DLL=pywrap.dylib
 
 .PHONY: build install test clean

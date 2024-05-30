@@ -11,7 +11,8 @@ curdir = dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Load the shared library and initialize the OCaml runtime
 if sys.platform == "darwin":
-    dll = PyDLL(f"{curdir}/pywrap.dylib", RTLD_GLOBAL)
+    # dll = PyDLL(f"{curdir}/pywrap.dylib", RTLD_GLOBAL)
+    dll = PyDLL(f"{curdir}/pywrap.so", RTLD_GLOBAL)
 elif sys.platform == "win32":
     dll = PyDLL(f"{curdir}/pywrap.dll", RTLD_GLOBAL)
 else:
